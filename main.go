@@ -17,6 +17,7 @@ type Response struct {
 }
 
 func DailyHoro(w http.ResponseWriter, r *http.Request) {
+	w.Header().Add("Content-Type", "application/json")
 	vars := mux.Vars(r)
 	sign := vars["sign"]
 	result, err := gohoro.GetHoroscope(sign)
